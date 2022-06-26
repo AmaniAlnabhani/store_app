@@ -12,6 +12,13 @@
         <!-- Styles -->
         <style>
             html, body {
+
+                background-image: url('h5.jpg');
+                 background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+
+
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
@@ -80,9 +87,12 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    E-Store
-                </div><div class="subtitle ">
+            <div class="title m-b-md" style="color:Tomato;">
+                    Welcome to our E-Store
+                </div>
+
+                
+                <div class="subtitle ">
                     All You Need Is Shopping
                 </div>
 
