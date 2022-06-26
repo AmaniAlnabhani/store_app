@@ -81,9 +81,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    E-Store
+                </div><div class="subtitle ">
+                    All You Need Is Shopping
                 </div>
 
+               
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>

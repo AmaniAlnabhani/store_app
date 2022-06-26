@@ -27,3 +27,4 @@ Route::group(['prefix'=>'customer/','middelware'=>['role:customer']],function(){
     Route::get('dashboard','CustomerController@dashboard')->name('customerDashboard');
 
 });
+Route::post('/proudects/store','ProudectsController@store');
