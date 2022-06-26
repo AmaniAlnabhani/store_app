@@ -1,4 +1,7 @@
 @extends('customer.layouts.customer')
 @section('content')
-    hello user
+    
+    <div class="alert alert-success" role="alert">
+        Hello Customer
+    </div>
 @endsection
