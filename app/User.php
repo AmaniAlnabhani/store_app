@@ -46,7 +46,5 @@ class User extends Authenticatable
     public function prouduct(){
         return $this->hasMany(proudect::class);
     }
-    //public function section(){
-     //   return $this->hasMany(section::class);
-    //}
+   
 }
