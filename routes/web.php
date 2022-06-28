@@ -14,17 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::group(['prefix'=>'administrator/','middelware'=>['role:administrator']],function(){
+/*Route::group(['prefix'=>'administrator/','middelware'=>['role:administrator']],function(){
  Route::get('dashboard','AdminController@dashboard')->name('adminDashboard');
 });
 Route::group(['prefix'=>'customer/','middelware'=>['role:customer']],function(){
     Route::get('dashboard','CustomerController@dashboard')->name('customerDashboard');
 
 });
+Route::get('addadmin', function () {
+    return view('/admin/addadmin');
+  });*/
 Route::post('/proudects/store','ProudectsController@store');
+Route::post('/section/store','sectionController@store');

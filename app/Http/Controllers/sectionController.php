@@ -13,7 +13,7 @@ class sectionController extends Controller
         $this->middleware('auth');
     }
 public function store(Request $request){
-    //return $request;
+    return $request;
     
     $section = new Section();
     $section->id=$request->id;

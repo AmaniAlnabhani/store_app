@@ -3,6 +3,7 @@
     
     <div class="alert alert-success" role="alert">
         Hello Admin
+        
     </div>
     <div class="container">
         <div class="row pt-4">
@@ -41,13 +42,13 @@
         
     </form>
     </div></div>
-
+  
     <div class="container">
         
 
         <div class="row pt-5">
             <h2>Sections</h2>
-            <form class="row g-5" action="/products/store" method="post">
+            <form class="row g-5" action="/section/store" method="post">
                 <div class="col-md-3">
                     <label for="price" class="form-label">Section ID</label>
                     <input type="number" class="form-control" id="id" required>
@@ -65,5 +66,5 @@
             </form>
         </div>
   </div>
-
+ 
 @endsection
