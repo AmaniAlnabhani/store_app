@@ -30,6 +30,12 @@ Route::group(['prefix'=>'customer/','middelware'=>['role:customer']],function(){
 Route::get('addadmin', function () {
     return view('/admin/addadmin');
   });*/
+Route::get('proudects','ProudectsController@index');
+Route::get('proudects/create','ProudectsController@create');
+Route::get('proudects/edit{id}','ProudectsController@edit');
+Route::get('proudects/delete{id}','ProudectsController@destroy');
+Route::post('proudects/update{id}','ProudectsController@update');
+
 Route::post('/proudects/store','ProudectsController@store');
 Route::post('/section/store','sectionController@store');
 Route::post('/order/import','OrderController@importFromExcel');
