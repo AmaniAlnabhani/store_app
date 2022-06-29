@@ -32,3 +32,6 @@ Route::get('addadmin', function () {
   });*/
 Route::post('/proudects/store','ProudectsController@store');
 Route::post('/section/store','sectionController@store');
+Route::post('/order/import','OrderController@importFromExcel');
+Route::view('order-form','excel-import');
+Route::get('order','OrderController@export');
