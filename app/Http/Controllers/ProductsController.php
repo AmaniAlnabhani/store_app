@@ -3,40 +3,95 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use App\Product;
 
 class ProductsController extends Controller
 {
-    //
-
-public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
-public function store(Request $request){
 
-     if(Auth::check()){
-     $product = new Product();
-     $product->name=$request->name;
-     $product->price=$request->price;
-     $product->section=$request->section;
-     $product->quantity=$request->quantity;
-     $product->attachment=$request->attachment;
-     $product->save();
-     return "Product is created Seccessfully";
-
-     }else{
-           return redirect('home');
-     }
-
-    }
-
-    public function list()
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         $data['product'] = Product::all();
-
-        return view('product/list', $data);
+        return view('product.index');
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('product.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $dara['product'] = Product::findOrFail($id);
+        return view('product.edit');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $record = Product::FindOrFail($id);
+        $record->delete();
+
+        return back();
+    }
 
 }
