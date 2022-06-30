@@ -20,8 +20,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $data['product'] = Product::all();
-        return view('product.index');
+         $data['product'] = Product::all();
+        return view('product.index',$data);
     }
 
     /**
@@ -42,7 +42,22 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $record = new Product;
+        $record->name = $request->name;
+        $record->price = $request->price;
+        $record->cateogry_id = $request->cateogry_id;
+
+        if($request->hasFile('image'))
+        {
+            $photo =$request->file('image');
+            $path = 'uploads/products/'.time().'.'.$photo->extension();
+            $photo->move(public_path('uploads/products/'), $path);
+            $record->image_path = $path;
+        }
+
+        $record->save();
+
+        return "Record is created Successfully";
     }
 
     /**
@@ -64,8 +79,8 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        $dara['product'] = Product::findOrFail($id);
-        return view('product.edit');
+         $data['product'] = Product::findOrFail($id);
+        return view('product.edit',$data);
     }
 
     /**
@@ -77,7 +92,22 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $record = Product::findOrFail($id);
+        $record->name = $request->name;
+        $record->price = $request->price;
+        $record->cateogry_id = $request->cateogry_id;
+
+        if($request->hasFile('image'))
+        {
+            $photo =$request->file('image');
+            $path = 'uploads/products/'.time().'.'.$photo->extension();
+            $photo->move(public_path('uploads/products/'), $path);
+            $record->image_path = $path;
+        }
+
+        $record->save();
+
+        return "Record is updated Successfully";
     }
 
     /**
