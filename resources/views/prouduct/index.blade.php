@@ -10,42 +10,43 @@
 </head>
 <body>
 
+     <h1>{{__('Product List')}}</h1>
 
-    <form action="/product/store" method="POST" enctype="multipart/form-data">
-        @csrf
-     <div class="container">
+     <div class="contaner">
+        <div class="row">
+            @forelse ($products as $product)
 
-        <h1>{{__('Create Product')}}</h1>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">{{ $product->name}}</div>
+                    <div class="card-body">
 
-        <div class="mb-3">
-            <label for="name" class="form-label">{{__('Name')}}</label>
-            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
-          </div>
+                        <img src="{{ asset($product->image_path)}} " style="max-width: 100%" alt="">
 
-          <div class="mb-3">
-            <label for="price" class="form-label">{{__('Price')}}</label>
-            <input type="number" class="form-control" id="price" name="price">
-          </div>
+                    </div>
+                    <div class="card-footer">
+                        {{ $product->price}}
+                        <a href="/proudects/edit/{{ $product->id }}">
+                            <button class="btn btn-info">{{__('Edit')}}</button>
+                        </a>
 
-          <div class="mb-3">
-              <label for="formFile" class="form-label">{{__('Product Image')}}</label>
-              <input class="form-control" type="file" id="formFile" name="image">
-          </div>
+                        <a href="/proudects/delete/{{ $product->id }}">
+                        <button class="btn btn-danger">{{__('Delete')}}</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-          <div class="mb-3">
-              <label for="cateogry_id" class="form-label">{{__('Cateogry Id')}}</label>
-              <input type="text" class="form-control" id="cateogry_id" name="cateogry_id">
-          </div>
+            @empty
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+            {{__('No Data')}}
 
+            @endforelse
+        </div>
      </div>
-
-    </form>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 </html>
-
