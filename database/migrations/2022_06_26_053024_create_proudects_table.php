@@ -14,12 +14,11 @@ class CreateProudectsTable extends Migration
     public function up()
     {
         Schema::create('proudects', function (Blueprint $table) {
-            $table->id();
-            $table->String('name')->nullable();
-            $table->Double('price')->nullable();
-            $table->String('section')->nullable();
-            $table->Integer('quantity')->nullable();
-            $table->String('attachment')->nullable();
+           $table->id();
+            $table->String('name');
+            $table->Double('price');
+            $table->String('image_path');
+            $table->unsignedInteger('cateogry_id');
             $table->timestamps();
         });
     }
